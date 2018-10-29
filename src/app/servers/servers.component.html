@@ -2,9 +2,11 @@
   servers works!
 </p>
 <hr>
+<button class="btn btn-primary" [disabled]="!allowAddNewServer">Add Server</button>
+<hr>
+<p>{{allowAddNewServer}}</p>
+<hr>
 <div>
-  <server-component></server-component>
-  <server-component></server-component>
   <server-component></server-component>
   <server-component></server-component>
 </div>

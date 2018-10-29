@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styles: [`h3{color: dodgerblue;}`]
 })
 export class AppComponent {
+
   title = 'my-first-app';
   public name: string;
 }

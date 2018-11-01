@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
+  public hiddenParagraph = true;
+  public clickCounter = 0;
+  public clickCollection: Array<string> = [];
+
   public allowAddNewServer = false;
   public serverCreationStatus = 'No server was created';
   public newServerName = 'test';
@@ -20,6 +24,17 @@ export class ServersComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public togleParagraphVisibility() {
+    this.clickCounter++;
+    this.clickCollection.push("Click N" + this.clickCounter);
+
+    if (this.hiddenParagraph) {
+      this.hiddenParagraph = false;
+    } else {
+      this.hiddenParagraph = true;
+    }
   }
 
   public onServerCreate($ev) {

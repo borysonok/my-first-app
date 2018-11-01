@@ -1,13 +1,19 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'server-component',
     templateUrl: "./server.component.html"
 })
 export class ServerComponent {
-    public serverID: number = 10;
+    
+    @Input() name: string = 'Boo-Boo-Boo';
+    
+    @Input() serverID: number = 10;
     public serverStatus: string = 'offline';
 
+    // constructor(public server: string) { 
+    //     console.log("====== server name is: ", server);
+    // }
 
     public getServerStatus() {
         return this.serverStatus;

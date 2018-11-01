@@ -10,9 +10,11 @@ export class ServersComponent implements OnInit {
 
   public allowAddNewServer = false;
   public serverCreationStatus = 'No server was created';
+  public newServerName = 'test';
+  public serversCollection = ['Server_01', 'Server_02'];
 
-  constructor() { 
-    setTimeout(() => { 
+  constructor() {
+    setTimeout(() => {
       this.allowAddNewServer = true;
     }, 1000);
   }
@@ -20,9 +22,13 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onServerCreate($ev) { 
-    this.serverCreationStatus = 'New Server was added';
-    this.allowAddNewServer = false;
+  public onServerCreate($ev) {
+    this.serverCreationStatus = 'New Server was added. Server name is: ' + this.newServerName;
+    this.serversCollection.push(this.newServerName);
+  }
+
+  public onUpdateServerName(ev: Event) {
+    this.newServerName = (<HTMLInputElement>ev.target).value;
   }
 
 }

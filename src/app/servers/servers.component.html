@@ -2,6 +2,14 @@
   servers works!
 </p>
 <hr>
+<label>Server Name</label>
+<div>
+  <input type="text" class="form-control" [(ngModel)]="newServerName">
+  <input type="text" class="form-control" (input)=onUpdateServerName($event)>
+</div>
+<hr>
+{{newServerName}}
+<hr>
 <button (click)="onServerCreate()" class="btn btn-primary" [disabled]="!allowAddNewServer">Add Server</button>
 <hr>
 <p>{{allowAddNewServer}}</p>
@@ -9,6 +17,5 @@
 <p>{{serverCreationStatus}}</p>
 <hr>
 <div>
-  <server-component></server-component>
-  <server-component></server-component>
+  <server-component *ngFor="let server of serversCollection" [name]="server" [serverID]="15"></server-component>
 </div>
